@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kim Milyoner Olmak İster</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <!-- Başlangıç Ekranı -->
+    <div class="container" id="start-screen">
+        <h1><i class="fas fa-trophy"></i> Kim Milyoner Olmak İster?</h1>
+        <button onclick="startGame()" class="start-btn">
+            <i class="fas fa-play"></i>
+            <span>Oyunu Başlat</span>
+        </button>
+        <button onclick="showHighScores()" class="high-score-btn">
+            <i class="fas fa-crown"></i>
+            <span>Yüksek Skorlar</span>
+        </button>
+    </div>
+
+    <!-- Oyun Ekranı -->
+    <div class="container" id="game-screen" style="display:none;">
+        <div class="game-header">
+            <div class="score">
+                <i class="fas fa-coins"></i> Ödül: <span id="score-amount">0</span> TL
+            </div>
+            <div id="timer" class="timer">
+                Süre: <span id="time-left">30</span>
+            </div>
+        </div>
+
+        <div class="money-ladder" id="money-ladder">
+            <!-- Para basamakları JavaScript ile doldurulacak -->
+        </div>
+        
+        <div class="jokers">
+            <div class="joker" onclick="useJoker('50-50')" id="joker-50-50">
+                <i class="fas fa-percentage"></i>
+                <span>50:50</span>
+            </div>
+            <div class="joker" onclick="useJoker('phone')" id="joker-phone">
+                <i class="fas fa-phone"></i>
+                <span>Telefon</span>
+            </div>
+            <div class="joker" onclick="useJoker('audience')" id="joker-audience">
+                <i class="fas fa-users"></i>
+                <span>Seyirci</span>
+            </div>
+            <div class="joker" onclick="quitGame()" id="quit-button">
+                <i class="fas fa-door-open"></i>
+                <span>Çekil</span>
+            </div>
+        </div>
+
+        <div class="question" id="question">Soru yükleniyor...</div>
+        <div class="options" id="options"></div>
+
+        <div class="social-share">
+            <button onclick="shareScore('twitter')" class="share-button">
+                <i class="fab fa-twitter"></i> Twitter'da Paylaş
+            </button>
+            <button onclick="shareScore('facebook')" class="share-button">
+                <i class="fab fa-facebook"></i> Facebook'ta Paylaş
+            </button>
+        </div>
+    </div>
+
+    <div class="music-control" onclick="toggleMusic()">
+        <i class="fas fa-music"></i> Müzik
+    </div>
+
+    <!-- Ses Dosyaları -->
+    <audio id="background-music" loop>
+        <source src="sounds/background.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="correct-sound">
+        <source src="sounds/correct.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="wrong-sound">
+        <source src="sounds/wrong.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="final-sound">
+        <source src="sounds/final.mp3" type="audio/mpeg">
+    </audio>
+
+    <script src="questions.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
